@@ -4,9 +4,9 @@ from django.core.mail import send_mail  # 開発時は print でもOK
 from .forms import ContactForm
 
 
-def home(request):
+def project_list(request):
     projects = Project.objects.all()
-    return render(request, 'home.html', {'projects': projects})
+    return render(request, 'project_list.html', {'projects': projects})
 
 def contact(request):
     if request.method == 'POST':
