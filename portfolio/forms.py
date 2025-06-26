@@ -1,8 +1,19 @@
 from django import forms
 
-class ContactForm(forms.Form):
-    name = forms.CharField(max_length=100)
-    email = forms.EmailField()
-    message = forms.CharField(widget=forms.Textarea)
+from django import forms
 
+class ContactForm(forms.Form):
+    name = forms.CharField(
+        label='お名前',
+        max_length=100,
+        widget=forms.TextInput(attrs={'class': 'form-control'})
+    )
+    email = forms.EmailField(
+        label='メールアドレス',
+        widget=forms.EmailInput(attrs={'class': 'form-control'})
+    )
+    message = forms.CharField(
+        label='メッセージ',
+        widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 5})
+    )
 

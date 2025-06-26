@@ -52,7 +52,7 @@
    - **CSV / Excel** 形式での出力
 
    - GitHub: https://github.com/TechCat-Hello/co2_viz.git
-   - デプロイ: https://co2-viz-b6d8014c247d.herokuapp.com　（ログイン不要）
+   - デプロイ: https://co2-viz-b6d8014c247d.herokuapp.com　 （ログイン不要）
 
    ![CO2排出量画面](screenshots/graph_co2viz_page.png)
 
