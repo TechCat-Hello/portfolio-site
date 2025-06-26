@@ -23,5 +23,5 @@ from portfolio import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('portfolio.urls')),
+    path('', include('portfolio.urls', namespace='portfolio')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)    #media の serve 追加（開発時のみ）
