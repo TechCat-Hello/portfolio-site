@@ -23,7 +23,7 @@
    ※ デモ専用アカウントです。  
    データは予告なくリセットされる可能性があります。  
 
-   ![Inventoryダッシュボード](screenshots/user_dashboard.png)
+   ![Inventoryダッシュボード](static/screenshots/user_dashboard.png)
 
 ### 2. **地震可視化アプリ**
    - **USGS（米国地質調査所）API**を使って**地震データを可視化**
@@ -43,7 +43,7 @@
    ※ デモ専用アカウントです。  
    データは予告なくリセットされる可能性があります。  
 
-![地震マップ画面](screenshots/results.png)  
+![地震マップ画面](static/screenshots/results.png)  
 
 
 ### 3. **CO2排出量可視化アプリ**
@@ -54,7 +54,7 @@
    - GitHub: https://github.com/TechCat-Hello/co2_viz.git
    - デプロイ: https://co2-viz-b6d8014c247d.herokuapp.com　 （ログイン不要）
 
-   ![CO2排出量画面](screenshots/graph_co2viz_page.png)
+   ![CO2排出量画面](static/screenshots/graph_co2viz_page.png)
 
 ## 技術スタック
 

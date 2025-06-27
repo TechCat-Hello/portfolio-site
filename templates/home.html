@@ -34,14 +34,51 @@
             font-size: 1.1em;
             line-height: 1.8;
         }
-        ul {
+
+        /* スキルセクション */
+        .skills-section {
+            margin-top: 40px;
+        }
+        .skills-section h2 {
+            font-size: 1.8em;
+            border-bottom: 3px solid #2980b9;
+            padding-bottom: 8px;
+            margin-bottom: 25px;
+            color: #2c3e50;
+        }
+        .skills-list {
             list-style: none;
             padding: 0;
-            margin-top: 30px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px;
         }
-        li {
-            margin-bottom: 15px;
+        @media(min-width: 600px) {
+            .skills-list {
+                grid-template-columns: 1fr 1fr;
+            }
         }
+        .skills-list li {
+            background-color: #eaf1f8;
+            border-left: 6px solid #2980b9;
+            padding: 12px 18px;
+            font-size: 1.05em;
+            line-height: 1.4;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+            transition: background-color 0.3s;
+            border-radius: 4px;
+        }
+        .skills-list li:hover {
+            background-color: #d6e4fb;
+        }
+        /* スキルの先頭にアイコン風マーク */
+        .skills-list li::before {
+            content: "✔";
+            color: #2980b9;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
         a {
             display: inline-block;
             text-decoration: none;
@@ -50,6 +87,7 @@
             padding: 10px 20px;
             border-radius: 4px;
             transition: background-color 0.3s;
+            margin-top: 15px;
         }
         a:hover {
             background-color: #3498db;
@@ -71,15 +109,17 @@
         <p>このサイトでは、私が開発したPython・DjangoベースのWebアプリを紹介しています。<br>
         理系修士で研究・分析業務に携わってきた経験を活かし、<strong>データ可視化・業務支援</strong>に役立つ実用的なツールを作成しています。</p>
 
-        <p>主なスキル：</p>
-        <ul>
-            <li>Python / Django / HTML / CSS / JavaScript</li>
-            <li>データ可視化（Matplotlib, Leaflet, GMT）</li>
-            <li>地図可視化（Leaflet.jsによる地震データのマッピング、GeoJSON対応）</li>
-            <li>API連携（World Bank API、USGS Earthquake APIを用いたデータ取得と可視化）</li>
-            <li>フロントエンド構築（Bootstrap 5 / JavaScript / SheetJS によるCSV・Excel出力機能 / PDF出力機能）</li>
-            <li>環境構築（Docker, Render, Heroku, Supabase）</li>
-        </ul>
+        <section class="skills-section">
+            <h2>主なスキル</h2>
+            <ul class="skills-list">
+                <li><strong>Python / Django</strong> / HTML / CSS / JavaScript</li>
+                <li><strong>データ可視化</strong><br>Matplotlib, Leaflet, GMT</li>
+                <li><strong>地図可視化</strong><br>Leaflet.jsによる地震データのマッピング、GeoJSON対応</li>
+                <li><strong>API連携</strong><br>World Bank API、USGS Earthquake APIを用いたデータ取得と可視化</li>
+                <li><strong>フロントエンド構築</strong><br>Bootstrap 5 / JavaScript / SheetJS によるCSV・Excel出力機能 / PDF出力機能</li>
+                <li><strong>環境構築</strong><br>Docker, Render, Heroku, Supabase</li>
+            </ul>
+        </section>
 
         <img src="{% static 'screenshots/results.png' %}" alt="ポートフォリオのイメージ">
 
@@ -90,5 +130,3 @@
     </main>
 </body>
 </html>
-
-
