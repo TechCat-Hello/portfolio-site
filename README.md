@@ -58,14 +58,24 @@
 
 ## 技術スタック
 
-- **言語・フレームワーク**: Python 3.x / Django 4.x
-- **フロントエンド**: Bootstrap 5
+## 技術スタック
+
+- **言語・フレームワーク**: Python 3.x / Django 4.x / Fortran / VBA / HTML / CSS / JavaScript
+- **フロントエンド**: Bootstrap 5 / Leaflet.js
+- **データ可視化・地図表示**: Matplotlib / GMT / ImageMagick
+- **データ分析**: pandas / numpy / Pythonによるデータ集計・可視化
 - **データベース**:
   - 開発環境: SQLite
   - 本番環境: PostgreSQL（Supabase）
+- **API連携**: USGS Earthquake API / World Bank API
+- **PDF・CSV・Excel出力**: WeasyPrint / Python標準モジュール / Djangoの出力機能
+- **Webアプリ開発**: ユーザー認証 / CRUD処理 / ダッシュボード分岐 / 管理者機能
+- **開発環境**: VSCode / Visual Studio / Docker / devcontainer
 - **デプロイ**:
   - Heroku（CO2排出量可視化アプリ）
   - Render（Inventory-app, 地震可視化アプリ）
+- **OS・CLI**: Linux / Bash
+- **ドキュメント作成・整理**: Markdown / PukiWiki / 英語文献との照合表作成
 
 ## License
 This project is licensed under the MIT License.  
