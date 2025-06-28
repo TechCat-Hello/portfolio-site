@@ -35,7 +35,7 @@ def home_view(request):
 def inventory_detail_view(request):
     return render(request, 'inventory_detail.html')  # ← 作成するテンプレート
 
-def project_detail(request, slug):
+def project_detail(request, slug): 
     project = get_object_or_404(Project, slug=slug)
 
     # slugに応じてテンプレートを切り替える
@@ -43,6 +43,8 @@ def project_detail(request, slug):
         template_name = 'quake_detail.html'
     elif slug == 'inventory-manager':
         template_name = 'inventory_detail.html'
+    elif slug == 'co2-viz':
+        template_name = 'co2_detail.html'
     else:
         template_name = 'project_detail.html'
 
@@ -50,3 +52,6 @@ def project_detail(request, slug):
 
 def quake_detail_view(request):
     return render(request, 'quake_detail.html')
+
+def co2_detail_view(request):
+    return render(request, 'co2_detail.html')

@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>CO₂排出量可視化アプリ - 詳細</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>CO₂排出量可視化アプリ（Global CO₂ Emissions Visualizer）</h1>
+
+    <p><strong>概要：</strong>国別のCO₂排出量データを可視化するDjangoアプリです。World Bank APIを使用して取得したデータをもとに、インタラクティブなグラフで各国の排出傾向を比較・分析できます。</p>
+
+    <p><strong>使用技術：</strong>Python / Django / Bootstrap / Chart.js / World Bank API</p>
+
+    <ul>
+        <li>国ごとのCO₂排出量を可視化（折れ線グラフ）</li>
+        <li>World Bank APIからのデータ自動取得</li>
+        <li>国と年代でフィルタリング</li>
+        <li>複数国のデータ比較機能</li>
+        <li>レスポンシブ対応</li>
+    </ul>
+
+    <p><strong>GitHub：</strong> <a href="https://github.com/TechCat-Hello/co2-visualizer.git" target="_blank">コードを見る</a></p>
+    <p><strong>デモ：</strong> <a href="https://co2-visualizer.onrender.com" target="_blank">アプリを体験する</a></p>
+
+    <p><a href="{% url 'portfolio:apps_list' %}">← アプリ一覧に戻る</a></p>
+</body>
+</html>
