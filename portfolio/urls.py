@@ -10,4 +10,5 @@ urlpatterns = [
     path('inventory-app/', views.inventory_detail_view, name='inventory_detail'),  # 特定のアプリ詳細
     path('<slug:slug>/', views.project_detail, name='project_detail'),  # slugによる詳細ページ
     path('contact/', views.contact, name='contact'),
+    path('quake_viz/', views.quake_detail_view, name='quake_detail'),
 ]

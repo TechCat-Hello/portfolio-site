@@ -37,5 +37,16 @@ def inventory_detail_view(request):
 
 def project_detail(request, slug):
     project = get_object_or_404(Project, slug=slug)
-    return render(request, 'project_detail.html', {'project': project})
 
+    # slugに応じてテンプレートを切り替える
+    if slug == 'quake-viz':
+        template_name = 'quake_detail.html'
+    elif slug == 'inventory-manager':
+        template_name = 'inventory_detail.html'
+    else:
+        template_name = 'project_detail.html'
+
+    return render(request, template_name, {'project': project})
+
+def quake_detail_view(request):
+    return render(request, 'quake_detail.html')

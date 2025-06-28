@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>地震可視化アプリ - 詳細</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>地震可視化アプリ（Earthquake Visualization App）</h1>
+
+    <p><strong>概要：</strong>USGSのAPIから取得したリアルタイムおよび過去の地震データを日本地図上にマッピングし、地域ごとの地震リスクや発生傾向を分析できるインタラクティブなDjangoアプリです。</p>
+
+    <p><strong>使用技術：</strong>Python / Django / JavaScript / Leaflet.js / USGS API / Plotly</p>
+
+    <ul>
+        <li>USGS APIを使った地震データの取得・更新</li>
+        <li>Leaflet.jsによる地図上の地震発生地点の可視化</li>
+        <li>日付・マグニチュード・都道府県での絞り込み機能</li>
+        <li>地震発生履歴のグラフ表示（Plotly使用）</li>
+        <li>レスポンシブデザインによるPC・スマホ対応</li>
+    </ul>
+
+    <p><strong>GitHub：</strong> <a href="https://github.com/TechCat-Hello/earthquake-visualization-app.git" target="_blank" rel="noopener noreferrer">コードを見る</a></p>
+    <p><strong>デモ：</strong> <a href="https://earthquake-app-demo.example.com" target="_blank" rel="noopener noreferrer">アプリを体験する</a></p>
+
+    <p><a href="{% url 'portfolio:apps_list' %}">← アプリ一覧に戻る</a></p>
+</body>
+</html>
