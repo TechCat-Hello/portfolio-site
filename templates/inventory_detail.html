@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>備品管理アプリ - 詳細</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>備品管理アプリ（Inventory Manager）</h1>
+
+    <p><strong>概要：</strong>社内の備品を管理・貸出・返却・履歴管理するDjangoアプリです。</p>
+
+    <p><strong>使用技術：</strong>Python / Django / Bootstrap / WeasyPrint / Chart.js</p>
+
+    <ul>
+        <li>ユーザー認証（管理者 / 一般ユーザー）</li>
+        <li>備品のCRUD機能</li>
+        <li>貸出申請・状況表示</li>
+        <li>CSV・PDF出力（WeasyPrint）</li>
+        <li>グラフ表示（Chart.js）</li>
+    </ul>
+
+    <p><strong>GitHub：</strong> <a href="https://github.com/TechCat-Hello/inventory-app.git" target="_blank">コードを見る</a></p>
+    <p><strong>デモ：</strong> <a href="https://inventory-app-x0qh.onrender.com" target="_blank">アプリを体験する</a></p>
+
+    <p><a href="{% url 'portfolio:apps_list' %}">← アプリ一覧に戻る</a></p>
+</body>
+</html>

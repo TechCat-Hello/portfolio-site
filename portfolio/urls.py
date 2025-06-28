@@ -5,7 +5,9 @@ from . import views
 app_name = 'portfolio'
 
 urlpatterns = [
-    path('', views.home_view, name='home'), 
-    path('apps/', views.project_list, name='apps_list'), 
+    path('', views.project_list, name='home'),  # トップページ
+    path('apps/', views.project_list, name='apps_list'),  # /apps/ に一覧ページ
+    path('inventory-app/', views.inventory_detail_view, name='inventory_detail'),  # 特定のアプリ詳細
+    path('<slug:slug>/', views.project_detail, name='project_detail'),  # slugによる詳細ページ
     path('contact/', views.contact, name='contact'),
 ]

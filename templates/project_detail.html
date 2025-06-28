@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ project.title }}</h1>
+<img src="{{ project.image.url }}" alt="{{ project.title }}">
+<p>{{ project.description }}</p>
+<p>使用技術: {{ project.technologies }}</p>
+<p><a href="{{ project.url }}" target="_blank">GitHubリポジトリを見る</a></p>
+<a href="{% url 'portfolio:apps_list' %}">← アプリ一覧に戻る</a>
+{% endblock %}

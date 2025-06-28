@@ -1,9 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Project
 from django.core.mail import send_mail
 from .forms import ContactForm
 from django.contrib import messages
 from django.conf import settings
+from django.views.generic import DetailView
+from .models import Project
 
 
 def project_list(request):
@@ -29,3 +31,11 @@ def contact(request):
 
 def home_view(request):
     return render(request, 'home.html')
+
+def inventory_detail_view(request):
+    return render(request, 'inventory_detail.html')  # ← 作成するテンプレート
+
+def project_detail(request, slug):
+    project = get_object_or_404(Project, slug=slug)
+    return render(request, 'project_detail.html', {'project': project})
+
