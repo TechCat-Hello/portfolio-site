@@ -1,209 +1,38 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>ポートフォリオサイト | Python×Django開発</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <style>
-        body {
-            font-family: "Noto Sans JP", sans-serif;
-            background-color: #f5f7fa;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
 
-        nav.navbar {
-            margin-bottom: 0;
-        }
+{% block content %}
+<header>
+    <h1>Welcome to Akiko M's Portfolio</h1>
+    <p>Python × Django によるWebアプリケーション制作実績</p>
+</header>
 
-        .navbar-brand.btn-style {
-            background-color: #2980b9;
-            color: white !important;
-            padding: 8px 16px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
+<main>
+    <p>このサイトでは、私が開発したPython・DjangoベースのWebアプリを紹介しています。<br>
+    理系修士で研究・分析業務に携わってきた経験を活かし、<strong>データ可視化・業務支援</strong>に役立つ実用的なツールを作成しています。</p>
 
-        .navbar-brand.btn-style:hover {
-            background-color: #3498db;
-        }
-
-        .navbar-nav .nav-link.btn-style {
-            background-color: #2980b9;
-            color: white !important;
-            padding: 8px 16px;
-            margin-left: 10px;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-
-        .navbar-nav .nav-link.btn-style:hover {
-            background-color: #3498db;
-        }
-
-        header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 30px 20px;
-            text-align: center;
-        }
-
-        main {
-            padding: 40px 20px;
-            max-width: 800px;
-            margin: auto;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-
-        p {
-            font-size: 1.1em;
-            line-height: 1.8;
-        }
-
-        .skills-section {
-            margin-top: 40px;
-        }
-
-        .skills-section h2 {
-            font-size: 1.8em;
-            border-bottom: 3px solid #2980b9;
-            padding-bottom: 8px;
-            margin-bottom: 25px;
-            color: #2c3e50;
-        }
-
-        .skills-list {
-            list-style: none;
-            padding: 0;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 18px;
-        }
-
-        @media(min-width: 600px) {
-            .skills-list {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .skills-list li {
-            background-color: #eaf1f8;
-            border-left: 6px solid #2980b9;
-            padding: 12px 18px;
-            font-size: 1.05em;
-            line-height: 1.4;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-            transition: background-color 0.3s;
-            border-radius: 4px;
-        }
-
-        .skills-list li:hover {
-            background-color: #d6e4fb;
-        }
-
-        .skills-list li::before {
-            content: "✔";
-            color: #2980b9;
-            font-weight: bold;
-            margin-right: 10px;
-        }
-
-        a {
-            display: inline-block;
-            text-decoration: none;
-            background-color: #2980b9;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-            margin-top: 15px;
-        }
-
-        a:hover {
-            background-color: #3498db;
-        }
-
-        img {
-            max-width: 100%;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- ナビゲーションバー -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-        <div class="container">
-            <a class="navbar-brand btn-style" href="{% url 'portfolio:home' %}">My Portfolio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link btn-style" href="{% url 'portfolio:home' %}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn-style" href="{% url 'portfolio:contact' %}">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn-style" href="https://github.com/TechCat-Hello" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- ヘッダー -->
-    <header>
-        <h1>Welcome to Akiko M's Portfolio</h1>
-        <p>Python × Django によるWebアプリケーション制作実績</p>
-    </header>
-
-    <!-- メインコンテンツ -->
-    <main>
-        <p>このサイトでは、私が開発したPython・DjangoベースのWebアプリを紹介しています。<br>
-        理系修士で研究・分析業務に携わってきた経験を活かし、<strong>データ可視化・業務支援</strong>に役立つ実用的なツールを作成しています。</p>
-
-        <section class="skills-section">
-            <h2>主なスキル</h2>
-            <ul class="skills-list">
-                <li><strong>言語・フレームワーク</strong><br>Python / Django / Fortran / VBA / HTML / CSS / JavaScript</li>
-                <li><strong>データ可視化・地図表示</strong><br>Matplotlib / Leaflet.js / GMT / ImageMagick</li>
-                <li><strong>データ分析</strong><br>pandas / numpy / Pythonによるデータ集計・可視化</li>
-                <li><strong>データベース</strong><br>PostgreSQL / Supabase / SQLite</li>
-                <li><strong>API連携</strong><br>USGS Earthquake API / World Bank API</li>
-                <li><strong>PDF・CSV・Excel出力</strong><br>WeasyPrint / Python標準モジュール / Djangoの出力機能</li>
-                <li><strong>Webアプリ開発</strong><br>ユーザー認証 / CRUD処理 / ダッシュボード分岐 / 管理者機能</li>
-                <li><strong>開発環境</strong><br>VSCode / Visual Studio / Docker / devcontainer</li>
-                <li><strong>デプロイ・運用</strong><br>Render / Heroku / Git / GitHub</li>
-                <li><strong>OS・CLI</strong><br>Linux / Bash</li>
-                <li><strong>ドキュメント作成・整理</strong><br>Markdown / PukiWiki / 英語文献との照合表作成</li>
-            </ul>
-        </section>
-
-        <img src="{% static 'screenshots/results.png' %}" alt="ポートフォリオのイメージ">
-
-        <ul>
-            <li><a href="{% url 'portfolio:apps_list' %}">▶ アプリ一覧を見る</a></li>
-            <li><a href="{% url 'portfolio:contact' %}">✉ お問い合わせフォームへ</a></li>
+    <section class="skills-section">
+        <h2>主なスキル</h2>
+        <ul class="skills-list">
+            <li><strong>言語・フレームワーク</strong><br>Python / Django / Fortran / VBA / HTML / CSS / JavaScript</li>
+            <li><strong>データ可視化・地図表示</strong><br>Matplotlib / Leaflet.js / GMT / ImageMagick</li>
+            <li><strong>データ分析</strong><br>pandas / numpy / Pythonによるデータ集計・可視化</li>
+            <li><strong>データベース</strong><br>PostgreSQL / Supabase / SQLite</li>
+            <li><strong>API連携</strong><br>USGS Earthquake API / World Bank API</li>
+            <li><strong>PDF・CSV・Excel出力</strong><br>WeasyPrint / Python標準モジュール / Djangoの出力機能</li>
+            <li><strong>Webアプリ開発</strong><br>ユーザー認証 / CRUD処理 / ダッシュボード分岐 / 管理者機能</li>
+            <li><strong>開発環境</strong><br>VSCode / Visual Studio / Docker / devcontainer</li>
+            <li><strong>デプロイ・運用</strong><br>Render / Heroku / Git / GitHub</li>
+            <li><strong>OS・CLI</strong><br>Linux / Bash</li>
+            <li><strong>ドキュメント作成・整理</strong><br>Markdown / PukiWiki / 英語文献との照合表作成</li>
         </ul>
-    </main>
+    </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    <img src="{% static 'screenshots/results.png' %}" alt="ポートフォリオのイメージ">
 
+    <div class="d-flex flex-wrap gap-3 mt-4">
+        <a href="{% url 'portfolio:apps_list' %}" class="btn-style">▶ アプリ一覧を見る</a>
+        <a href="{% url 'portfolio:contact' %}" class="btn-style">✉ お問い合わせフォームへ</a>
+    </div>
+</main>
+{% endblock %}
