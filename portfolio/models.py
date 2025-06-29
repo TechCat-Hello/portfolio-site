@@ -3,7 +3,7 @@ from django.utils.text import slugify
 
 class Project(models.Model):
     title = models.CharField(max_length=100)
-    slug = models.SlugField(max_length=100, unique=True, blank=True)
+    slug = models.SlugField(max_length=100, unique=True, blank=False)
     description = models.TextField()
     image = models.ImageField(upload_to='projects/')
     url = models.URLField(blank=True)
