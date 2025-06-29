@@ -4,14 +4,11 @@ from django.core.mail import send_mail
 from .forms import ContactForm
 from django.contrib import messages
 from django.conf import settings
-from django.views.generic import DetailView
-from .models import Project
 
 
 def project_list(request):
     projects = Project.objects.all()
     return render(request, 'project_list.html', {'projects': projects})
-
 
 def contact(request):
     if request.method == 'POST':
@@ -20,20 +17,29 @@ def contact(request):
             cd = form.cleaned_data
             subject = 'お問い合わせ: ' + cd['name']
             message = f"名前: {cd['name']}\nメール: {cd['email']}\n\n{cd['message']}"
-            send_mail(subject, message, 'noreply@example.com', ['a.m.techcat@gmail.com'])
-            
+
+            send_mail(
+                subject,
+                message,
+                settings.DEFAULT_FROM_EMAIL, 
+                [settings.CONTACT_RECEIVER_EMAIL],  
+                fail_silently=False,
+            )
+
             messages.success(request, 'お問い合わせを送信しました。ありがとうございました。')
             form = ContactForm()
     else:
         form = ContactForm()
-    
+
     return render(request, 'contact.html', {'form': form})
+
+
 
 def home_view(request):
     return render(request, 'home.html')
 
 def inventory_detail_view(request):
-    return render(request, 'inventory_detail.html')  # ← 作成するテンプレート
+    return render(request, 'inventory_detail.html')  
 
 def project_detail(request, slug): 
     project = get_object_or_404(Project, slug=slug)

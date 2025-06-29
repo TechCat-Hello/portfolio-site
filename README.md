@@ -1,9 +1,9 @@
 # ポートフォリオサイト（Django）
 
 転職活動のために作成した**Django製**ポートフォリオサイトです。  
-以下の**3つのアプリ**をまとめて紹介しています。
+**3つのアプリ**をまとめて紹介しています。
 
-![ポートフォリオサイト全体](images/portfolio_home.png)    #後で画像差し込む
+![ポートフォリオサイト全体](static/screenshots/portfolio_home.png)  
 
 ## 掲載プロジェクト
 
@@ -55,8 +55,6 @@
    - デプロイ: https://co2-viz-b6d8014c247d.herokuapp.com　 （ログイン不要）
 
    ![CO2排出量画面](static/screenshots/graph_co2viz_page.png)
-
-## 技術スタック
 
 ## 技術スタック
 

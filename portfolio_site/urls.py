@@ -14,15 +14,17 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path, include
-from django.conf import settings    #開発中のみ？
-from django.conf.urls.static import static    #開発中のみ？
-#from portfolio import views
-#from . import views
-
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('portfolio.urls', namespace='portfolio')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)    #media の serve 追加（開発時のみ）
+]
+
+# 開発環境のみメディアファイルをDjangoが配信
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
