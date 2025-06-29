@@ -72,6 +72,18 @@
         </ul>
     </div>
 
+    <div class="mb-5">
+        <h2 class="section-title">開発時の工夫と技術的ポイント</h2>
+        <ul class="list-group">
+            <li class="list-group-item">ログイン後、ユーザー権限（管理者 / 一般ユーザー）に応じて異なるダッシュボードへ自動リダイレクトし、業務上の役割分担を明確に反映</li>
+            <li class="list-group-item">管理者はすべての備品情報を管理可能、一般ユーザーは自分が登録した備品のみ編集・削除できるように制御（Djangoの認可機構を活用）</li>
+            <li class="list-group-item">CSV・Excel・PDF出力機能を実装し、出力フォーマットごとに使いやすさと可読性を意識（PDFはWeasyPrintで日本語対応）</li>
+            <li class="list-group-item">貸出状況をカテゴリ別にグラフ化し、視覚的に在庫管理状況を把握できるUIを構築</li>
+            <li class="list-group-item">レスポンシブデザイン対応（Bootstrap利用）でスマートフォンからの操作も考慮</li>
+            <li class="list-group-item">各種フォームでは入力値のバリデーションを行い、エラー時に適切なメッセージを表示</li>
+            <li class="list-group-item">Django のテンプレート継承を活用してヘッダーやボタンスタイルを統一し、保守性と見た目の一貫性を両立</li>
+        </ul>
+    </div>
 
     <div class="mb-5">
         <h2 class="section-title">スクリーンショット</h2>
@@ -113,3 +125,4 @@
 
 </body>
 </html>
+

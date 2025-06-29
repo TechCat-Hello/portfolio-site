@@ -64,10 +64,22 @@
         <ul class="list-group">
             <li class="list-group-item">USGS APIを使った地震データの取得・更新</li>
             <li class="list-group-item">Leaflet.jsによる地図上の地震発生地点の可視化</li>
-            <li class="list-group-item">マップ上のシンボルをクリックすると、場所・発生時刻・マグニチュードを表示</li>
+            <li class="list-group-item">マップ上のマーカーをクリックすると、場所・発生時刻・マグニチュードを表示</li>
             <li class="list-group-item">日付・マグニチュード・都道府県での絞り込み機能</li>
             <li class="list-group-item">地震発生履歴のCSV・Excel出力機能</li>
             <li class="list-group-item">レスポンシブデザインによるPC・スマホ対応</li>
+        </ul>
+    </div>
+
+    <div class="mb-5">
+        <h2 class="section-title">開発時の工夫と技術的ポイント</h2>
+        <ul class="list-group">
+            <li class="list-group-item">ユーザー入力（年、都道府県、マグニチュード）に応じて地震データをフィルタリングし、対象地域の情報を抽出</li>
+            <li class="list-group-item">取得した地震データは1ページあたり10件ずつのページネーションに対応し、大量データでも快適に閲覧可能</li>
+            <li class="list-group-item">地図上のマーカークリックで、地震の場所・発生日時・マグニチュードの詳細情報を表示し、インタラクティブ性を向上</li>
+            <li class="list-group-item">Djangoのフォームを使った入力データのバリデーションを実装し、エラー時に明確なフィードバックを表示</li>
+            <li class="list-group-item">UIにスライダーを導入し、マグニチュードの範囲指定を動的に行い操作性を向上</li>
+            <li class="list-group-item">プルダウンでの年度と都道府県の選択により誤入力を防ぎつつ、絞り込み検索を実現</li>
         </ul>
     </div>
 
