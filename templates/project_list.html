@@ -3,7 +3,7 @@
 
 {% block content %}
 <header>
-    <h1>My Portfolio</h1>
+    <h1 style="color: white;">My Portfolio</h1>
     <p>これまでに開発したWebアプリケーションの一覧をご紹介します。</p>
 </header>
 
@@ -18,7 +18,9 @@
                     <p class="card-text text-muted" style="white-space: pre-line;">{{ project.description|linebreaksbr }}</p>
                     {% if project.url %}
                     <div class="mt-auto">
-                        <a href="{% url 'portfolio:project_detail' project.slug %}">▶ View Details</a>
+                        <a href="{% url 'portfolio:project_detail' project.slug %}" class="btn btn-primary">
+                            ▶ View Details
+                        </a>
                     </div>
                     {% endif %}
                 </div>
@@ -41,6 +43,11 @@
 .project-image {
     margin: 0;
     display: block;
+}
+
+/* My Portfolioの文字色（ヘッダー背景が濃色前提で白文字） */
+header h1 {
+    color: white;
 }
 </style>
 {% endblock %}
