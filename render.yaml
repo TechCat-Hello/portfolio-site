@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: portfolio-site
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn config.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: config.settings
+      - key: DATABASE_URL
+        value: （Supabaseの接続URLをここに入れる）
+      - key: SECRET_KEY
+        value: あなたのDjangoシークレットキー
+      - key: DEBUG
+        value: False
