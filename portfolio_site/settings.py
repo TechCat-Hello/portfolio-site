@@ -134,8 +134,6 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 if not DEBUG:
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': config('CLOUD_NAME'),
     'API_KEY': config('CLOUD_API_KEY'),
@@ -147,10 +145,10 @@ CLOUDINARY_STORAGE = {
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MEDIA_URL = '/media/'
+MEDIA_ROOT = None
+MEDIA_URL = ''
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-if DEBUG:
-    MEDIA_ROOT = BASE_DIR / 'media'
 
 # 簡易設定（本番ではSMTP設定に置き換え）
 
