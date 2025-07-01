@@ -9,6 +9,8 @@ class Project(models.Model):
     image = CloudinaryField('image')
     url = models.URLField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    order = models.PositiveIntegerField(default=0, blank=False, null=False)
+
 
     def __str__(self):
         return self.title
@@ -17,4 +19,7 @@ class Project(models.Model):
         if not self.slug:
             self.slug = slugify(self.title)  # タイトルからslugを自動生成
         super().save(*args, **kwargs)
+
+    class Meta:
+        ordering = ['order'] 
 
