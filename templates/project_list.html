@@ -2,26 +2,32 @@
 {% load static %}
 
 {% block content %}
-<header>
+<header class="text-center my-5">
     <h1 style="color: white;">My Portfolio</h1>
-    <p>これまでに開発したWebアプリケーションの一覧をご紹介します。</p>
+    <p class="text-light">これまでに開発したWebアプリケーションの一覧をご紹介します。</p>
 </header>
 
 <main class="container my-5">
     <div class="row g-4">
         {% for project in projects %}
         <div class="col-md-6 col-lg-4">
-            <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden transition-card">
+            <div class="card project-card h-100 border-0 shadow rounded-4 overflow-hidden">
                 <div class="ratio ratio-16x9">
-                    <img src="{{ project.image.url }}" alt="{{ project.title }}" class="w-100 h-100 object-fit-cover">
+                    {% if project.image %}
+                        <img src="{{ project.image.url }}" alt="{{ project.title }}" class="w-100 h-100 object-fit-cover">
+                    {% else %}
+                        <img src="{% static 'images/no-image.png' %}" alt="No image" class="w-100 h-100 object-fit-cover">
+                    {% endif %}
                 </div>
                 <div class="card-body d-flex flex-column p-4">
-                    <h5 class="card-title text-dark fw-semibold">{{ project.title }}</h5>
-                    <p class="card-text text-muted small" style="white-space: pre-line;">{{ project.description|linebreaksbr }}</p>
-                    {% if project.url %}
-                    <div class="mt-auto text-end">
-                        <a href="{% url 'portfolio:project_detail' project.slug %}" class="btn btn-outline-primary btn-sm rounded-pill">
-                            <i class="bi bi-box-arrow-up-right"></i> View Details
+                    <h5 class="card-title fw-bold text-primary mb-2">{{ project.title }}</h5>
+                    <p class="card-text text-muted small flex-grow-1" style="white-space: pre-line; line-height: 1.6;">
+                        {{ project.description|linebreaksbr }}
+                    </p>
+                    {% if project.slug %}
+                    <div class="text-center mt-3">
+                        <a href="{% url 'portfolio:project_detail' project.slug %}" class="btn btn-primary btn-sm rounded-pill px-4 shadow-sm">
+                            <i class="bi bi-box-arrow-up-right me-1"></i> View Details
                         </a>
                     </div>
                     {% endif %}
@@ -33,12 +39,15 @@
 </main>
 
 <style>
-.transition-card {
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+.project-card {
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border-radius: 1rem;
 }
-.transition-card:hover {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-    transform: translateY(-4px);
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
 
 .object-fit-cover {
