@@ -13,8 +13,8 @@
    - 備品の**統計情報をグラフ**で表示
    - **CSV / Excel / PDF** 形式での出力
 
-   - GitHub: https://github.com/TechCat-Hello/inventory-app.git
-   - デプロイ:https://inventory-app-x0qh.onrender.com（ログイン必須） 
+   - GitHub: https://github.com/TechCat-Hello/portfolio-site.git
+   - デプロイ:https://portfolio-site-ebvx.onrender.com
  
    **デモログイン情報**
    - ユーザー名：`demo_user`
