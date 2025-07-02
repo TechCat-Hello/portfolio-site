@@ -7,7 +7,6 @@ class ProjectAdmin(admin.ModelAdmin):
     ordering = ('order',)  # 管理画面でもorder順で表示
 
     def formatted_description(self, obj):
-        # 改行を <br> に変換して mark_safe で HTML として表示
         return mark_safe(obj.description.replace('\n', '<br><br>'))
 
     formatted_description.short_description = 'Description'
