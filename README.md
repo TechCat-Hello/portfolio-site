@@ -5,6 +5,10 @@
 
 ![ポートフォリオサイト全体](static/screenshots/portfolio_home.png)  
 
+- 🔗 **ポートフォリオサイト（本サイト）**
+  - [デプロイ先（Render）](https://portfolio-site-ebvx.onrender.com)
+  - [GitHub リポジトリ](https://github.com/TechCat-Hello/portfolio-site.git)
+
 ## 掲載プロジェクト
 
 ### 1. **Inventory-app**
@@ -13,8 +17,8 @@
    - 備品の**統計情報をグラフ**で表示
    - **CSV / Excel / PDF** 形式での出力
 
-   - GitHub: https://github.com/TechCat-Hello/portfolio-site.git
-   - デプロイ:https://portfolio-site-ebvx.onrender.com
+   - GitHub: https://github.com/TechCat-Hello/inventory-app.git
+   - デプロイ:https://inventory-app-x0qh.onrender.com
  
    **デモログイン情報**
    - ユーザー名：`demo_user`
