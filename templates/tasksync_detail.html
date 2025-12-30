@@ -1,0 +1,193 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>TaskSync - 詳細</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Noto Sans JP", sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2, h3, h4, h5 {
+            color: #2c3e50;
+        }
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 0.5rem;
+        }
+        .screenshot-caption {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #333;
+            text-align: center;
+            margin-top: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        .btn-primary {
+            background-color: #0d6efd;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+        }
+        .btn-outline-dark:hover {
+            background-color: #343a40;
+            color: #fff;
+        }
+
+        /* ヘッダーのスタイル base.htmlから抜粋 */
+        nav.navbar {
+            margin-bottom: 0;
+        }
+        .navbar-brand.btn-style {
+            background-color: #2980b9;
+            color: white !important;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .navbar-brand.btn-style:hover {
+            background-color: #3498db;
+        }
+        .navbar-nav .nav-link.btn-style {
+            background-color: #2980b9;
+            color: white !important;
+            padding: 8px 16px;
+            margin-left: 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .navbar-nav .nav-link.btn-style:hover {
+            background-color: #3498db;
+        }
+    </style>
+</head>
+<body>
+
+<!-- base.html継承でデザイン崩れのため、ヘッダーをここに記述 -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+  <div class="container">
+    <a class="navbar-brand btn-style" href="{% url 'portfolio:home' %}">Home - Akiko M's Portfolio</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link btn-style" href="{% url 'portfolio:contact' %}">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn-style" href="https://github.com/TechCat-Hello" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ページ本文 -->
+<div class="container py-5 bg-light">
+    <h1 class="mb-4 display-5 fw-bold text-primary">TaskSync（タスク管理アプリ）</h1>
+
+    <div class="mb-5">
+        <h2 class="section-title">概要</h2>
+        <p class="lead">
+            このアプリは、チーム向けのリアルタイム同期型タスク管理アプリです。<br>
+            複数ユーザーが同時にタスクボードを操作でき、変更が即座に全員の画面に反映されると同時に<br>
+            Slackによる通知機能も実装しています。
+        </p>
+    </div>
+
+    <div class="mb-5">
+        <h2 class="section-title">主な使用技術</h2>
+        <p class="mb-0">
+            【Backend】Python / Django / Django REST Framework / Django Channels / PostgreSQL<br>
+            【Frontend】React / Material-UI / WebSocket<br>
+            【Infrastructure】Docker / Render / Supabase</p>
+    </div>
+
+    <div class="mb-5">
+        <h2 class="section-title">主な機能</h2>
+        <ul class="list-group">
+            <li class="list-group-item"><strong>リアルタイム同期:</strong> WebSocketを使用し、複数ユーザーの操作を瞬時に反映</li>
+            <li class="list-group-item"><strong>権限管理:</strong> 管理者と一般ユーザーで異なる操作権限を設定</li>
+            <li class="list-group-item"><strong>直感的なUI:</strong> Material-UIとドラッグ&ドロップで使いやすいインターフェース</li>
+            <li class="list-group-item"><strong>JWT認証:</strong> セキュアなトークンベース認証システム</li>
+            <li class="list-group-item"><strong>Slack連携:</strong> タスクの追加・編集・完了など、主要なイベントをSlackへ自動通知</li>
+        </ul>
+    </div>
+
+    <div class="mb-5">
+        <h2 class="section-title">開発時の工夫と技術的ポイント</h2>
+        <ul class="list-group">
+            <li class="list-group-item">WebSocket通信により、複数ユーザーがタスクを同時編集しても瞬時に全員の画面へ反映される仕組みを実装（Django ChannelsとReactの連携）</li>
+            <li class="list-group-item">JWT認証をWebSocketミドルウェアに組み込み、未認証ユーザーからの接続を遮断し、セキュリティを確保</li>
+            <li class="list-group-item">タスクのドラッグ&ドロップによる順序変更機能を実装し、並び替え時にWebSocketで全クライアントへリアルタイム配信</li>
+            <li class="list-group-item">タスクステータス変更時にSlack通知を自動送信し、チーム全体への情報共有を即座に実現（Slack API連携）</li>
+            <li class="list-group-item">ユーザー権限（管理者 / 一般ユーザー）に応じてタスクの編集・削除権限を制御し、作成者以外の操作を適切に制限</li>
+            <li class="list-group-item">テンプレート継承による統一感のあるデザインと保守性の確保</li>
+            <li class="list-group-item">Material-UIを活用した手描き風アンダーラインやグラデーション背景など、モダンでポートフォリオ映えするUIデザインを採用</li>
+        </ul>
+    </div>
+
+    <div class="mb-5">
+        <h2 class="section-title">スクリーンショット</h2>
+
+        <div class="mb-5 text-center">
+            <img src="{% static 'screenshots/tasksync_login.png' %}" class="img-fluid rounded shadow" alt="TaskSync ログイン画面">
+            <div class="screenshot-caption">JWT認証によるセキュアなログイン画面</div>
+        </div>
+
+        <div class="mb-5 text-center">
+            <img src="{% static 'screenshots/tasksync_dashboard.png' %}" class="img-fluid rounded shadow" alt="TaskSync ダッシュボード">
+            <div class="screenshot-caption">ドラッグ&ドロップでタスクを管理できる直感的なダッシュボード</div>
+        </div>
+
+        <div class="mb-5 text-center">
+            <img src="{% static 'screenshots/tasksync_slack-notification.png' %}" class="img-fluid rounded shadow" alt="TaskSync Slack通知">
+            <div class="screenshot-caption">タスクの更新をリアルタイムでSlackに通知</div>
+        </div>
+    </div>
+
+    <div class="mb-3 d-flex flex-wrap gap-3">
+        {% if project.url %}
+            <a href="{{ project.url }}" class="btn btn-outline-dark btn-lg" target="_blank">
+                GitHubでコードを見る
+            </a>
+        {% endif %}
+        <a href="https://realtime-task-app-frontend.onrender.com/" class="btn btn-primary btn-lg" target="_blank">
+            デモを見る
+        </a>
+    </div>
+
+    <div class="alert alert-secondary mt-1" role="alert">
+        <strong>【デモログイン情報】</strong><br>
+        <strong>管理者アカウント：</strong><br>
+        ユーザー名：<code>admin</code><br>
+        パスワード：<code>demo789!</code><br>
+        <br>
+        <strong>一般ユーザーアカウント：</strong><br>
+        ユーザー名：<code>user1</code><br>
+        パスワード：<code>password123!</code><br>
+        <br>
+        ※ログイン画面で上記の情報をご入力ください。
+    </div>
+
+    <a href="{% url 'portfolio:apps_list' %}" class="btn btn-link">← アプリ一覧に戻る</a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

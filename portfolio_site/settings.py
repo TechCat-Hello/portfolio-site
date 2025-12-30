@@ -143,9 +143,17 @@ CLOUDINARY_API_SECRET = os.environ.get("CLOUDINARY_API_SECRET")
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MEDIA_ROOT = None
-MEDIA_URL = ''
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+# メディアファイルの設定（開発環境と本番環境で切り替え）
+if DEBUG:
+    # ローカル開発環境ではローカルファイルシステムを使用
+    MEDIA_ROOT = BASE_DIR / 'media'
+    MEDIA_URL = '/media/'
+    DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+else:
+    # 本番環境ではCloudinaryを使用
+    MEDIA_ROOT = None
+    MEDIA_URL = ''
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 # 簡易設定（本番ではSMTP設定に置き換え）

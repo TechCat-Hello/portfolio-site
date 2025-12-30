@@ -51,6 +51,8 @@ def project_detail(request, slug):
         template_name = 'inventory_detail.html'
     elif slug == 'co2-viz':
         template_name = 'co2_detail.html'
+    elif slug == 'tasksync':
+        template_name = 'tasksync_detail.html'
     else:
         template_name = 'project_detail.html'
 
