@@ -1,7 +1,7 @@
 # ポートフォリオサイト（Django）
 
-転職活動のために作成した**Django製**ポートフォリオサイトです。  
-**3つのアプリ**をまとめて紹介しています。
+Python/Djangoで開発した**Webアプリケーションのポートフォリオサイト**です。  
+実務で培ったスキルである自動化ツール開発・データ可視化・業務効率化の経験も活かした**4つのプロジェクト**を掲載しています。
 
 ![ポートフォリオサイト全体](static/screenshots/portfolio_home.png)  
 
@@ -78,6 +78,19 @@
   - Render（Inventory-app, 地震可視化アプリ）
 - **OS・CLI**: Linux / Bash
 - **ドキュメント作成・整理**: Markdown / PukiWiki / 英語文献との照合表作成
+
+## 依存関係の固定（Lock運用）
+
+このプロジェクトは `pip-tools` を使って依存関係を固定しています。
+
+- `requirements.in`: 直接依存（トップレベル依存）を管理
+- `requirements.txt`: `pip-compile` で生成される固定済み依存（間接依存を含む）
+
+`requirements.in` を更新した後は、次のコマンドで `requirements.txt` を再生成してください。
+
+```bash
+python -m piptools compile requirements.in -o requirements.txt
+```
 
 ## License
 This project is licensed under the MIT License.  
